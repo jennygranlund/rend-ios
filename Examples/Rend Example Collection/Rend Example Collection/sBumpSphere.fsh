@@ -1,37 +1,24 @@
 
-precision highp float;
+precision mediump float;
 
-uniform sampler2D s_texture;
-uniform sampler2D s_bumpMap;
+uniform sampler2D s_textureY;
+uniform sampler2D s_textureUV;
 
-uniform float u_shinyness;
-uniform float u_specularLightBrightness;
-uniform float u_bumpMapOffset;
+uniform mat3 u_colorConversionMatrix;
+uniform float u_exposure;
 
 varying vec2 v_texCoord;
-varying vec3 v_normal;
-
-varying vec3 v_bumpAxisX;
-varying vec3 v_bumpAxisY;
+varying vec2 v_position;
 
 void main() {
-    vec4 pixelColor = texture2D(s_texture, v_texCoord);
+    mediump vec3 yuv;
+	lowp vec3 rgb;
+	
+	// Subtract constants to map the video range start at 0
+	yuv.x = (texture2D(s_textureY, v_texCoord).r - (16.0/255.0))* 1.0;
+	yuv.yz = (texture2D(s_textureUV, v_texCoord).rg - vec2(0.5, 0.5))* 1.0;
+	
+	rgb = u_colorConversionMatrix * yuv;
     
-    vec4 bumpOffset = -0.5 + texture2D(s_bumpMap, v_texCoord);
-    vec3 normal = normalize(v_normal + u_bumpMapOffset * bumpOffset.x * normalize(v_bumpAxisX) + u_bumpMapOffset * bumpOffset.y * normalize(v_bumpAxisY));
-    vec3 directionToLight = normalize(vec3(-1, 1, 1));
-    vec3 directionToViewer = vec3(0, 0, 1);
-    
-    // Diffuse light
-    float diffuseLight = max(dot(normal, directionToLight), 0.0);
-    pixelColor.rgb = pixelColor.rgb * (0.3 + 0.7 * diffuseLight);
-    
-    // Specular light
-    vec3 reflectanceDirection = normalize(2.0 * dot(normal, directionToLight) * normal - directionToLight);
-    float sl = max(dot(reflectanceDirection, directionToViewer), 0.0);
-    float specularLight = pow(sl, u_shinyness);
-    pixelColor.rgb = pixelColor.rgb + u_specularLightBrightness * specularLight;
-    
-    gl_FragColor = pixelColor;
-    
+	gl_FragColor = vec4(rgb, 1.0);
 }

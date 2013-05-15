@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A1237A215A7067500E404EA /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A12379F15A7067500E404EA /* UIViewAdditions.m */; };
-		3A1237A315A7067500E404EA /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1237A115A7067500E404EA /* UIImageAdditions.m */; };
-		3A1237A715A7068B00E404EA /* AngleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1237A615A7068B00E404EA /* AngleUtil.m */; };
 		3A1D0CBD15A70BB2003BAC0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B25D3CF01599171B00428A79 /* main.m */; };
 		3A1D0CC015A70BB2003BAC0F /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25D3D5715991DA000428A79 /* GLViewController.m */; };
 		3A1D0CE615A70BB2003BAC0F /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A12379F15A7067500E404EA /* UIViewAdditions.m */; };
@@ -32,95 +29,44 @@
 		3A1D0D0315A70BFA003BAC0F /* SphereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1237B115A7070C00E404EA /* SphereViewController.m */; };
 		3A1D0D0515A70BFD003BAC0F /* SphereNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1237B615A7071700E404EA /* SphereNode.m */; };
 		3A1D0D0615A70C05003BAC0F /* SphereViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1237B215A7070C00E404EA /* SphereViewController.xib */; };
-		B25D2E601599CF62004CA9DE /* sFragmentLighting.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B25D2E5C1599CF4A004CA9DE /* sFragmentLighting.fsh */; };
-		B25D2E611599CF62004CA9DE /* sFragmentLighting.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B25D2E5D1599CF4A004CA9DE /* sFragmentLighting.vsh */; };
-		B25D2E631599D497004CA9DE /* teapot.mtl in Resources */ = {isa = PBXBuildFile; fileRef = B25D2E621599D497004CA9DE /* teapot.mtl */; };
-		B25D3CE51599171B00428A79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D3CE41599171B00428A79 /* UIKit.framework */; };
-		B25D3CE71599171B00428A79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D3CE61599171B00428A79 /* Foundation.framework */; };
-		B25D3CE91599171B00428A79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D3CE81599171B00428A79 /* CoreGraphics.framework */; };
-		B25D3CEF1599171B00428A79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B25D3CED1599171B00428A79 /* InfoPlist.strings */; };
-		B25D3CF11599171B00428A79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B25D3CF01599171B00428A79 /* main.m */; };
-		B25D3CF51599171B00428A79 /* TeapotAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B25D3CF41599171B00428A79 /* TeapotAppDelegate.m */; };
-		B25D3D511599176900428A79 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D3D501599176900428A79 /* QuartzCore.framework */; };
-		B25D3D531599176D00428A79 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D3D521599176D00428A79 /* OpenGLES.framework */; };
-		B25D3D551599178600428A79 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D3D541599178600428A79 /* CoreVideo.framework */; };
-		B25D3D5815991DA200428A79 /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25D3D5715991DA000428A79 /* GLViewController.m */; };
-		B25D3D5C1599237700428A79 /* TeapotController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25D3D5B1599237400428A79 /* TeapotController.m */; };
-		B25D3D5F1599239600428A79 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = B25D3D5E1599239600428A79 /* teapot.obj */; };
-		B25D3D7D159928F200428A79 /* TeapotNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B25D3D7C159928F200428A79 /* TeapotNode.m */; };
-		B25D3D8415992B5900428A79 /* sVertexLighting.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B25D3D8215992B4D00428A79 /* sVertexLighting.fsh */; };
-		B25D3D8515992B5900428A79 /* sVertexLighting.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B25D3D8315992B4D00428A79 /* sVertexLighting.vsh */; };
-		B2FF34C615B2AD77001185F4 /* CC3Foundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348315B2AD77001185F4 /* CC3Foundation.m */; };
+		847A14841743E0290030140B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847A14801743DF080030140B /* AVFoundation.framework */; };
+		847A14851743E02B0030140B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847A14821743DF0C0030140B /* CoreMedia.framework */; };
+		847A14871743E4670030140B /* film.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 847A14861743E4500030140B /* film.m4v */; };
 		B2FF34C715B2AD77001185F4 /* CC3Foundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348315B2AD77001185F4 /* CC3Foundation.m */; };
-		B2FF34C815B2AD77001185F4 /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348515B2AD77001185F4 /* CC3GLMatrix.m */; };
 		B2FF34C915B2AD77001185F4 /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348515B2AD77001185F4 /* CC3GLMatrix.m */; };
-		B2FF34CA15B2AD77001185F4 /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348615B2AD77001185F4 /* CC3Kazmath.c */; };
 		B2FF34CB15B2AD77001185F4 /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348615B2AD77001185F4 /* CC3Kazmath.c */; };
-		B2FF34CC15B2AD77001185F4 /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348A15B2AD77001185F4 /* CC3Math.m */; };
 		B2FF34CD15B2AD77001185F4 /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348A15B2AD77001185F4 /* CC3Math.m */; };
-		B2FF34CE15B2AD77001185F4 /* NSValue+CC3Types.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348E15B2AD77001185F4 /* NSValue+CC3Types.m */; };
 		B2FF34CF15B2AD77001185F4 /* NSValue+CC3Types.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF348E15B2AD77001185F4 /* NSValue+CC3Types.m */; };
-		B2FF34D015B2AD77001185F4 /* REBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349015B2AD77001185F4 /* REBuffer.m */; };
 		B2FF34D115B2AD77001185F4 /* REBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349015B2AD77001185F4 /* REBuffer.m */; };
-		B2FF34D215B2AD77001185F4 /* RECache.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349215B2AD77001185F4 /* RECache.m */; };
 		B2FF34D315B2AD77001185F4 /* RECache.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349215B2AD77001185F4 /* RECache.m */; };
-		B2FF34D415B2AD77001185F4 /* RECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349415B2AD77001185F4 /* RECamera.m */; };
 		B2FF34D515B2AD77001185F4 /* RECamera.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349415B2AD77001185F4 /* RECamera.m */; };
-		B2FF34D615B2AD77001185F4 /* REDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349615B2AD77001185F4 /* REDirector.m */; };
 		B2FF34D715B2AD77001185F4 /* REDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349615B2AD77001185F4 /* REDirector.m */; };
-		B2FF34D815B2AD77001185F4 /* REGLStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349815B2AD77001185F4 /* REGLStateManager.m */; };
 		B2FF34D915B2AD77001185F4 /* REGLStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349815B2AD77001185F4 /* REGLStateManager.m */; };
-		B2FF34DA15B2AD77001185F4 /* REGLTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349A15B2AD77001185F4 /* REGLTypes.m */; };
 		B2FF34DB15B2AD77001185F4 /* REGLTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349A15B2AD77001185F4 /* REGLTypes.m */; };
-		B2FF34DC15B2AD77001185F4 /* REGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349C15B2AD77001185F4 /* REGLView.m */; };
 		B2FF34DD15B2AD77001185F4 /* REGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349C15B2AD77001185F4 /* REGLView.m */; };
-		B2FF34DE15B2AD77001185F4 /* REKeyframedMeshNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349E15B2AD77001185F4 /* REKeyframedMeshNode.m */; };
 		B2FF34DF15B2AD77001185F4 /* REKeyframedMeshNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF349E15B2AD77001185F4 /* REKeyframedMeshNode.m */; };
-		B2FF34E015B2AD77001185F4 /* RELight.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A015B2AD77001185F4 /* RELight.m */; };
 		B2FF34E115B2AD77001185F4 /* RELight.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A015B2AD77001185F4 /* RELight.m */; };
-		B2FF34E215B2AD77001185F4 /* REMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A215B2AD77001185F4 /* REMaterial.m */; };
 		B2FF34E315B2AD77001185F4 /* REMaterial.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A215B2AD77001185F4 /* REMaterial.m */; };
-		B2FF34E415B2AD77001185F4 /* RENode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A515B2AD77001185F4 /* RENode.m */; };
 		B2FF34E515B2AD77001185F4 /* RENode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A515B2AD77001185F4 /* RENode.m */; };
-		B2FF34E615B2AD77001185F4 /* RENSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A715B2AD77001185F4 /* RENSArrayAdditions.m */; };
 		B2FF34E715B2AD77001185F4 /* RENSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A715B2AD77001185F4 /* RENSArrayAdditions.m */; };
-		B2FF34E815B2AD77001185F4 /* RENSValueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A915B2AD77001185F4 /* RENSValueAdditions.m */; };
 		B2FF34E915B2AD77001185F4 /* RENSValueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34A915B2AD77001185F4 /* RENSValueAdditions.m */; };
-		B2FF34EA15B2AD77001185F4 /* REProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34AB15B2AD77001185F4 /* REProgram.m */; };
 		B2FF34EB15B2AD77001185F4 /* REProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34AB15B2AD77001185F4 /* REProgram.m */; };
-		B2FF34EC15B2AD77001185F4 /* RERotator.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34AD15B2AD77001185F4 /* RERotator.m */; };
 		B2FF34ED15B2AD77001185F4 /* RERotator.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34AD15B2AD77001185F4 /* RERotator.m */; };
-		B2FF34EE15B2AD77001185F4 /* REScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34AF15B2AD77001185F4 /* REScene.m */; };
 		B2FF34EF15B2AD77001185F4 /* REScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34AF15B2AD77001185F4 /* REScene.m */; };
-		B2FF34F015B2AD77001185F4 /* REScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B115B2AD77001185F4 /* REScheduler.m */; };
 		B2FF34F115B2AD77001185F4 /* REScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B115B2AD77001185F4 /* REScheduler.m */; };
-		B2FF34F215B2AD77001185F4 /* REShader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B315B2AD77001185F4 /* REShader.m */; };
 		B2FF34F315B2AD77001185F4 /* REShader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B315B2AD77001185F4 /* REShader.m */; };
-		B2FF34F415B2AD77001185F4 /* RESprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B515B2AD77001185F4 /* RESprite.m */; };
 		B2FF34F515B2AD77001185F4 /* RESprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B515B2AD77001185F4 /* RESprite.m */; };
-		B2FF34F615B2AD77001185F4 /* RESpriteBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B715B2AD77001185F4 /* RESpriteBatchNode.m */; };
 		B2FF34F715B2AD77001185F4 /* RESpriteBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B715B2AD77001185F4 /* RESpriteBatchNode.m */; };
-		B2FF34F815B2AD77001185F4 /* RETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B915B2AD77001185F4 /* RETexture.m */; };
 		B2FF34F915B2AD77001185F4 /* RETexture.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34B915B2AD77001185F4 /* RETexture.m */; };
-		B2FF34FA15B2AD77001185F4 /* REVertexArrayObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34BB15B2AD77001185F4 /* REVertexArrayObject.m */; };
 		B2FF34FB15B2AD77001185F4 /* REVertexArrayObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34BB15B2AD77001185F4 /* REVertexArrayObject.m */; };
-		B2FF34FC15B2AD77001185F4 /* REWavefrontMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34BD15B2AD77001185F4 /* REWavefrontMesh.m */; };
 		B2FF34FD15B2AD77001185F4 /* REWavefrontMesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34BD15B2AD77001185F4 /* REWavefrontMesh.m */; };
-		B2FF34FE15B2AD77001185F4 /* REWavefrontMeshElementIndexBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34BF15B2AD77001185F4 /* REWavefrontMeshElementIndexBatch.m */; };
 		B2FF34FF15B2AD77001185F4 /* REWavefrontMeshElementIndexBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34BF15B2AD77001185F4 /* REWavefrontMeshElementIndexBatch.m */; };
-		B2FF350015B2AD77001185F4 /* REWavefrontMeshGroupNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34C115B2AD77001185F4 /* REWavefrontMeshGroupNode.m */; };
 		B2FF350115B2AD77001185F4 /* REWavefrontMeshGroupNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34C115B2AD77001185F4 /* REWavefrontMeshGroupNode.m */; };
-		B2FF350215B2AD77001185F4 /* REWavefrontMeshNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34C315B2AD77001185F4 /* REWavefrontMeshNode.m */; };
 		B2FF350315B2AD77001185F4 /* REWavefrontMeshNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34C315B2AD77001185F4 /* REWavefrontMeshNode.m */; };
-		B2FF350415B2AD77001185F4 /* REWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34C515B2AD77001185F4 /* REWorld.m */; };
 		B2FF350515B2AD77001185F4 /* REWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = B2FF34C515B2AD77001185F4 /* REWorld.m */; };
-		B2FF350B15B2AD96001185F4 /* sRESprite.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350715B2AD96001185F4 /* sRESprite.fsh */; };
 		B2FF350C15B2AD96001185F4 /* sRESprite.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350715B2AD96001185F4 /* sRESprite.fsh */; };
-		B2FF350D15B2AD96001185F4 /* sRESprite.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350815B2AD96001185F4 /* sRESprite.vsh */; };
 		B2FF350E15B2AD96001185F4 /* sRESprite.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350815B2AD96001185F4 /* sRESprite.vsh */; };
-		B2FF350F15B2AD96001185F4 /* sRESpriteBatch.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350915B2AD96001185F4 /* sRESpriteBatch.fsh */; };
 		B2FF351015B2AD96001185F4 /* sRESpriteBatch.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350915B2AD96001185F4 /* sRESpriteBatch.fsh */; };
-		B2FF351115B2AD96001185F4 /* sRESpriteBatch.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350A15B2AD96001185F4 /* sRESpriteBatch.vsh */; };
 		B2FF351215B2AD96001185F4 /* sRESpriteBatch.vsh in Resources */ = {isa = PBXBuildFile; fileRef = B2FF350A15B2AD96001185F4 /* sRESpriteBatch.vsh */; };
 /* End PBXBuildFile section */
 
@@ -141,10 +87,12 @@
 		3A1237B515A7071700E404EA /* SphereNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereNode.h; sourceTree = "<group>"; };
 		3A1237B615A7071700E404EA /* SphereNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereNode.m; sourceTree = "<group>"; };
 		3A1D0CFB15A70BB2003BAC0F /* BumpSphereExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BumpSphereExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		847A14801743DF080030140B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		847A14821743DF0C0030140B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		847A14861743E4500030140B /* film.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = film.m4v; path = ../../../../../Desktop/film.m4v; sourceTree = "<group>"; };
 		B25D2E5C1599CF4A004CA9DE /* sFragmentLighting.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sFragmentLighting.fsh; sourceTree = "<group>"; };
 		B25D2E5D1599CF4A004CA9DE /* sFragmentLighting.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sFragmentLighting.vsh; sourceTree = "<group>"; };
 		B25D2E621599D497004CA9DE /* teapot.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = teapot.mtl; path = Resources/teapot.mtl; sourceTree = "<group>"; };
-		B25D3CE01599171B00428A79 /* TeapotExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeapotExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25D3CE41599171B00428A79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B25D3CE61599171B00428A79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B25D3CE81599171B00428A79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -251,19 +199,8 @@
 				3A1D0CED15A70BB2003BAC0F /* UIKit.framework in Frameworks */,
 				3A1D0CEE15A70BB2003BAC0F /* Foundation.framework in Frameworks */,
 				3A1D0CEF15A70BB2003BAC0F /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B25D3CDD1599171B00428A79 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B25D3D551599178600428A79 /* CoreVideo.framework in Frameworks */,
-				B25D3D531599176D00428A79 /* OpenGLES.framework in Frameworks */,
-				B25D3D511599176900428A79 /* QuartzCore.framework in Frameworks */,
-				B25D3CE51599171B00428A79 /* UIKit.framework in Frameworks */,
-				B25D3CE71599171B00428A79 /* Foundation.framework in Frameworks */,
-				B25D3CE91599171B00428A79 /* CoreGraphics.framework in Frameworks */,
+				847A14841743E0290030140B /* AVFoundation.framework in Frameworks */,
+				847A14851743E02B0030140B /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +314,6 @@
 		B25D3CE11599171B00428A79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B25D3CE01599171B00428A79 /* TeapotExample.app */,
 				3A1D0CFB15A70BB2003BAC0F /* BumpSphereExample.app */,
 			);
 			name = Products;
@@ -386,6 +322,8 @@
 		B25D3CE31599171B00428A79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				847A14821743DF0C0030140B /* CoreMedia.framework */,
+				847A14801743DF080030140B /* AVFoundation.framework */,
 				B25D3D541599178600428A79 /* CoreVideo.framework */,
 				B25D3D521599176D00428A79 /* OpenGLES.framework */,
 				B25D3D501599176900428A79 /* QuartzCore.framework */,
@@ -410,6 +348,7 @@
 		B25D3CEB1599171B00428A79 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				847A14861743E4500030140B /* film.m4v */,
 				B25D3CED1599171B00428A79 /* InfoPlist.strings */,
 				B25D3CF01599171B00428A79 /* main.m */,
 				B25D3CF21599171B00428A79 /* Rend Example Collection-Prefix.pch */,
@@ -539,9 +478,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A1D0CBB15A70BB2003BAC0F /* BumpSphereExample */ = {
+		3A1D0CBB15A70BB2003BAC0F /* VideoSphere */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A1D0CF815A70BB2003BAC0F /* Build configuration list for PBXNativeTarget "BumpSphereExample" */;
+			buildConfigurationList = 3A1D0CF815A70BB2003BAC0F /* Build configuration list for PBXNativeTarget "VideoSphere" */;
 			buildPhases = (
 				3A1D0CBC15A70BB2003BAC0F /* Sources */,
 				3A1D0CE915A70BB2003BAC0F /* Frameworks */,
@@ -551,26 +490,9 @@
 			);
 			dependencies = (
 			);
-			name = BumpSphereExample;
+			name = VideoSphere;
 			productName = "Rend Example Collection";
 			productReference = 3A1D0CFB15A70BB2003BAC0F /* BumpSphereExample.app */;
-			productType = "com.apple.product-type.application";
-		};
-		B25D3CDF1599171B00428A79 /* TeapotExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B25D3CF81599171B00428A79 /* Build configuration list for PBXNativeTarget "TeapotExample" */;
-			buildPhases = (
-				B25D3CDC1599171B00428A79 /* Sources */,
-				B25D3CDD1599171B00428A79 /* Frameworks */,
-				B25D3CDE1599171B00428A79 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TeapotExample;
-			productName = "Rend Example Collection";
-			productReference = B25D3CE01599171B00428A79 /* TeapotExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -594,8 +516,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B25D3CDF1599171B00428A79 /* TeapotExample */,
-				3A1D0CBB15A70BB2003BAC0F /* BumpSphereExample */,
+				3A1D0CBB15A70BB2003BAC0F /* VideoSphere */,
 			);
 		};
 /* End PBXProject section */
@@ -617,24 +538,7 @@
 				3A1D0CF615A70BB2003BAC0F /* sFragmentLighting.vsh in Resources */,
 				3A1D0CFE15A70BE0003BAC0F /* sBumpSphere.fsh in Resources */,
 				3A1D0CFF15A70BE2003BAC0F /* sBumpSphere.vsh in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B25D3CDE1599171B00428A79 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B2FF350B15B2AD96001185F4 /* sRESprite.fsh in Resources */,
-				B2FF350D15B2AD96001185F4 /* sRESprite.vsh in Resources */,
-				B2FF350F15B2AD96001185F4 /* sRESpriteBatch.fsh in Resources */,
-				B2FF351115B2AD96001185F4 /* sRESpriteBatch.vsh in Resources */,
-				B25D3CEF1599171B00428A79 /* InfoPlist.strings in Resources */,
-				B25D3D5F1599239600428A79 /* teapot.obj in Resources */,
-				B25D3D8415992B5900428A79 /* sVertexLighting.fsh in Resources */,
-				B25D3D8515992B5900428A79 /* sVertexLighting.vsh in Resources */,
-				B25D2E601599CF62004CA9DE /* sFragmentLighting.fsh in Resources */,
-				B25D2E611599CF62004CA9DE /* sFragmentLighting.vsh in Resources */,
-				B25D2E631599D497004CA9DE /* teapot.mtl in Resources */,
+				847A14871743E4670030140B /* film.m4v in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,53 +589,6 @@
 				B2FF350115B2AD77001185F4 /* REWavefrontMeshGroupNode.m in Sources */,
 				B2FF350315B2AD77001185F4 /* REWavefrontMeshNode.m in Sources */,
 				B2FF350515B2AD77001185F4 /* REWorld.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B25D3CDC1599171B00428A79 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B25D3CF11599171B00428A79 /* main.m in Sources */,
-				B25D3CF51599171B00428A79 /* TeapotAppDelegate.m in Sources */,
-				B25D3D5C1599237700428A79 /* TeapotController.m in Sources */,
-				B25D3D5815991DA200428A79 /* GLViewController.m in Sources */,
-				B25D3D7D159928F200428A79 /* TeapotNode.m in Sources */,
-				3A1237A215A7067500E404EA /* UIViewAdditions.m in Sources */,
-				3A1237A315A7067500E404EA /* UIImageAdditions.m in Sources */,
-				3A1237A715A7068B00E404EA /* AngleUtil.m in Sources */,
-				B2FF34C615B2AD77001185F4 /* CC3Foundation.m in Sources */,
-				B2FF34C815B2AD77001185F4 /* CC3GLMatrix.m in Sources */,
-				B2FF34CA15B2AD77001185F4 /* CC3Kazmath.c in Sources */,
-				B2FF34CC15B2AD77001185F4 /* CC3Math.m in Sources */,
-				B2FF34CE15B2AD77001185F4 /* NSValue+CC3Types.m in Sources */,
-				B2FF34D015B2AD77001185F4 /* REBuffer.m in Sources */,
-				B2FF34D215B2AD77001185F4 /* RECache.m in Sources */,
-				B2FF34D415B2AD77001185F4 /* RECamera.m in Sources */,
-				B2FF34D615B2AD77001185F4 /* REDirector.m in Sources */,
-				B2FF34D815B2AD77001185F4 /* REGLStateManager.m in Sources */,
-				B2FF34DA15B2AD77001185F4 /* REGLTypes.m in Sources */,
-				B2FF34DC15B2AD77001185F4 /* REGLView.m in Sources */,
-				B2FF34DE15B2AD77001185F4 /* REKeyframedMeshNode.m in Sources */,
-				B2FF34E015B2AD77001185F4 /* RELight.m in Sources */,
-				B2FF34E215B2AD77001185F4 /* REMaterial.m in Sources */,
-				B2FF34E415B2AD77001185F4 /* RENode.m in Sources */,
-				B2FF34E615B2AD77001185F4 /* RENSArrayAdditions.m in Sources */,
-				B2FF34E815B2AD77001185F4 /* RENSValueAdditions.m in Sources */,
-				B2FF34EA15B2AD77001185F4 /* REProgram.m in Sources */,
-				B2FF34EC15B2AD77001185F4 /* RERotator.m in Sources */,
-				B2FF34EE15B2AD77001185F4 /* REScene.m in Sources */,
-				B2FF34F015B2AD77001185F4 /* REScheduler.m in Sources */,
-				B2FF34F215B2AD77001185F4 /* REShader.m in Sources */,
-				B2FF34F415B2AD77001185F4 /* RESprite.m in Sources */,
-				B2FF34F615B2AD77001185F4 /* RESpriteBatchNode.m in Sources */,
-				B2FF34F815B2AD77001185F4 /* RETexture.m in Sources */,
-				B2FF34FA15B2AD77001185F4 /* REVertexArrayObject.m in Sources */,
-				B2FF34FC15B2AD77001185F4 /* REWavefrontMesh.m in Sources */,
-				B2FF34FE15B2AD77001185F4 /* REWavefrontMeshElementIndexBatch.m in Sources */,
-				B2FF350015B2AD77001185F4 /* REWavefrontMeshGroupNode.m in Sources */,
-				B2FF350215B2AD77001185F4 /* REWavefrontMeshNode.m in Sources */,
-				B2FF350415B2AD77001185F4 /* REWorld.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,32 +671,10 @@
 			};
 			name = Release;
 		};
-		B25D3CF91599171B00428A79 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rend Example Collection/Rend Example Collection-Prefix.pch";
-				INFOPLIST_FILE = "Rend Example Collection/Rend Example Collection-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		B25D3CFA1599171B00428A79 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rend Example Collection/Rend Example Collection-Prefix.pch";
-				INFOPLIST_FILE = "Rend Example Collection/Rend Example Collection-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A1D0CF815A70BB2003BAC0F /* Build configuration list for PBXNativeTarget "BumpSphereExample" */ = {
+		3A1D0CF815A70BB2003BAC0F /* Build configuration list for PBXNativeTarget "VideoSphere" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A1D0CF915A70BB2003BAC0F /* Debug */,
@@ -853,15 +688,6 @@
 			buildConfigurations = (
 				B25D3CF61599171B00428A79 /* Debug */,
 				B25D3CF71599171B00428A79 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B25D3CF81599171B00428A79 /* Build configuration list for PBXNativeTarget "TeapotExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B25D3CF91599171B00428A79 /* Debug */,
-				B25D3CFA1599171B00428A79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

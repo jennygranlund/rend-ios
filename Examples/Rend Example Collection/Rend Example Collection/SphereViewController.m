@@ -9,6 +9,8 @@
 #import "SphereViewController.h"
 #import "AngleUtil.h"
 #import "UIImageAdditions.h"
+#import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
 
 #define kNumberOfTextures 6
 #define kImageBaseURL @"http://antonholmquist.com/files/planet_textures/"
@@ -16,12 +18,17 @@
 #define kSphereIdleRotationSpeedY 0.1f
 #define kSphereIdleRotationSpeedX 0.015f
 
-@interface SphereViewController ()
+@interface SphereViewController () <AVPlayerItemOutputPullDelegate>
 
 - (void)rotateSphere:(CC3Vector)rotationDelta;
 - (void)updateSphereIdleRotation:(float)dt;
 - (void)setSphereTextureIndex:(int)textureIndex;
 - (void)loadingCompleted;
+
+@property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) AVPlayerItemVideoOutput *playerItemVideoOutput;
+@property (nonatomic, assign) dispatch_queue_t playerItemVideoOutputQueue;
+@property (nonatomic, strong) CADisplayLink *displayLink;
 
 @end
 
@@ -29,21 +36,94 @@
 
 # pragma mark - Life cycle
 
+- (void)loadPlayer {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"film.m4v" ofType:nil];
+    
+    NSURL *url = path ? [NSURL fileURLWithPath:path] : nil;
+    NSDictionary *options = @{ AVURLAssetPreferPreciseDurationAndTimingKey : @YES };
+    AVURLAsset *asset = url ? [[AVURLAsset alloc] initWithURL:url options:options] : nil;
+    
+    AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithAsset:asset];
+    
+    
+    
+    NSDictionary *pixBuffAttributes = @{(id)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
+    _playerItemVideoOutput = [[AVPlayerItemVideoOutput alloc] initWithPixelBufferAttributes:pixBuffAttributes];
+    _playerItemVideoOutputQueue = dispatch_queue_create("playerItemVideoOutputQueue", DISPATCH_QUEUE_SERIAL);
+    [_playerItemVideoOutput setDelegate:self queue:_playerItemVideoOutputQueue];
+    [playerItem addOutput:_playerItemVideoOutput];
+    
+    
+    _player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
+    [_player play];
+    
+    _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkCallback:)];
+    _displayLink.frameInterval = 1;
+    [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    
+}
+
+- (void)displayLinkCallback:(CADisplayLink *)sender {
+    
+    
+    [director_ draw];
+    
+    /*
+    The callback gets called once every Vsync.
+    Using the display link's timestamp and duration we can compute the next time the screen will be refreshed, and copy the pixel buffer for that time
+    This pixel buffer can then be processed and later rendered on screen.
+    */
+     
+    CMTime outputItemTime = kCMTimeInvalid;
+    
+    // Calculate the nextVsync time which is when the screen will be refreshed next.
+    CFTimeInterval nextVSync = ([sender timestamp] + [sender duration]);
+    
+    outputItemTime = [_playerItemVideoOutput itemTimeForHostTime:nextVSync];
+    
+    
+    
+    if ([_playerItemVideoOutput hasNewPixelBufferForItemTime:outputItemTime]) {
+        
+        CVPixelBufferRef pixelBuffer = NULL;
+        pixelBuffer = [_playerItemVideoOutput copyPixelBufferForItemTime:outputItemTime itemTimeForDisplay:NULL];
+        
+        [sphereNode_ setPixelBuffer:pixelBuffer];
+        
+        CVPixelBufferRelease(pixelBuffer);
+        
+    }
+    
+    
+
+	
+}
+
 - (void)viewDidLoad {
     
-    glView_ = [[REGLView alloc] initWithFrame:CGRectMake(0, 0, 320, 320) colorFormat:kEAGLColorFormatRGBA8 multisampling:NO];
+    glView_ = [[REGLView alloc] initWithFrame:CGRectMake(0, 0, 480, 320) colorFormat:kEAGLColorFormatRGBA8 multisampling:NO];
     [self.view insertSubview:glView_ atIndex:0];
     
+    // Affects camera:
+    const float kFrustomScale = 0.8;
+    const float kFrustumNear = 0.6;
+    
+    
+    float frustumScale = kFrustomScale;
     camera_ = [[RECamera alloc] initWithProjection:kRECameraProjectionPerspective];
-    camera_.position = CC3VectorMake(0, 0, 5);
+    camera_.position = CC3VectorMake(0, 0, 0);
     camera_.upDirection = CC3VectorMake(0, 1, 0);
     camera_.lookDirection = CC3VectorMake(0, 0, -1);
-    camera_.frustumLeft = -1;
-    camera_.frustumRight = 1;
-    camera_.frustumBottom = -1;
-    camera_.frustumTop = 1;
-    camera_.frustumNear = 4;
-    camera_.frustumFar = 10;
+    camera_.frustumBottom = -0.5 * frustumScale;
+    camera_.frustumTop = 0.5 * frustumScale;
+    camera_.frustumLeft = -0.5 * glView_.frame.size.width / glView_.frame.size.height * frustumScale;
+    camera_.frustumRight = 0.5 * glView_.frame.size.width / glView_.frame.size.height * frustumScale;
+    
+    // Camera
+    
+    camera_.frustumNear = kFrustumNear;
+    camera_.frustumFar = 100;
     
     scene_ = [[REScene alloc] init];
     scene_.camera = camera_;
@@ -56,8 +136,8 @@
     director_.scene = scene_;
     
     sphereNode_ = [[SphereNode alloc] initWithResolutionX:50 resolutionY:30 radius:1];
-    sphereNode_.cullFaceEnabled = [NSNumber numberWithBool:YES];
-    sphereNode_.cullFace = [NSNumber numberWithInt:GL_FRONT];
+    sphereNode_.cullFaceEnabled = [NSNumber numberWithBool:NO];
+    sphereNode_.cullFace = [NSNumber numberWithInt:GL_BACK];
     
     sphereRotationXNode_ = [[RENode alloc] init];
     sphereRotationYNode_ = [[RENode alloc] init];
@@ -86,6 +166,8 @@
     sphereNode_.bumpMapOffset = bumpOffsetSlider_.value;
     sphereNode_.specularLightBrightness = lightStrengthSlider_.value;
     sphereNode_.shinyness = shinynessSlider_.value;
+    
+    [self loadPlayer];
 }
 
 - (void)downloadImages {
@@ -100,6 +182,8 @@
         BOOL imageIsBumpMap = i % 2 == 1;
         NSString *imageBaseName = imageIsBumpMap ? @"bump" : @"texture";
         NSString *urlString = [NSString stringWithFormat:@"%@%@_%d.png", kImageBaseURL, imageBaseName, imageIndex];
+        
+        NSLog(@"urlString: %@", urlString);
         
         NSURL *imageURL = [NSURL URLWithString:urlString];
         [progressLabel_ performSelectorOnMainThread:@selector(setText:) withObject:progressString waitUntilDone:NO];
@@ -134,7 +218,6 @@
     
     [self setSphereTextureIndex:0];
     
-    director_.running = YES;
     [[REScheduler sharedScheduler] scheduleUpdateForTarget:self];
 }
 
@@ -252,6 +335,11 @@
 #pragma mark - Updates
 
 - (void)update:(double)dt {
+    
+    UIImage *image = [UIImage imageNamed:@"test.png"];
+    
+    sphereNode_.texture = [RETexture2D textureWithImage:[textureImages_ objectAtIndex:arc4random() % 4]];
+    
     [self updateSphereIdleRotation:dt];
 }
 

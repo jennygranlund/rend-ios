@@ -29,6 +29,8 @@ typedef struct SphereNodeAttribs {
 @property (nonatomic, readwrite) float specularLightBrightness;
 @property (nonatomic, readwrite) float bumpMapOffset;
 
+@property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
+
 - (id)initWithResolutionX:(int)resolutionX resolutionY:(int)resolutionY radius:(float)radius;
 
 @end
